@@ -1,0 +1,19 @@
+.node-context-menu {
+    position: fixed;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    padding: 5px 0;
+    min-width: 150px;
+    z-index: 1000;
+  }
+  
+  .menu-item {
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .menu-item:hover {
+    background-color: #f0f0f0;
+  }
