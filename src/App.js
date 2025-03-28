@@ -331,11 +331,6 @@ function App() {
     setShowFlowGraph(true);
   }, [nodes, edges]);
 
-  // Réinitialiser et afficher le graphe original
-  const showOriginalGraph = useCallback(() => {
-    setShowFlowGraph(false);
-  }, []);
-
   return (
     <div className="app-container">
       <ReactFlow
@@ -375,14 +370,22 @@ function App() {
               {edgeManipulationMode ? 'Désactiver' : 'Activer'} manipulation des arêtes
             </button>
             
-            {showFlowGraph && (
-              <>
-                <button onClick={showOriginalGraph}>Afficher le graphe original</button>
+            {maxFlowResult.flowGraph && (
+              <div className="flow-graph-controls">
+                <button 
+                  onClick={() => setShowFlowGraph(!showFlowGraph)}
+                  style={{
+                    backgroundColor: showFlowGraph ? '#4CAF50' : '#4a90e2',
+                    color: 'white'
+                  }}
+                >
+                  {showFlowGraph ? 'Graphe original' : 'Graphe de flot'}
+                </button>
                 <div className="result-panel">
                   <h4>Résultat</h4>
                   <p>Flot maximal : {maxFlowResult.value}</p>
                 </div>
-              </>
+              </div>
             )}
           </div>
         </Panel>
