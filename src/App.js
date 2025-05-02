@@ -36,14 +36,14 @@ function App() {
     nodeId: null 
   });
   
+  // État pour la rotation et le mode de manipulation des arêtes
+  const [edgeManipulationMode, setEdgeManipulationMode] = useState(false);
+  
   // État pour stocker le résultat du flot maximal
   const [maxFlowResult, setMaxFlowResult] = useState({ value: 0, flowGraph: null });
   
   // État pour afficher le graphe initial ou le graphe avec flots
   const [showFlowGraph, setShowFlowGraph] = useState(false);
-  
-  // État pour la rotation et le mode de manipulation des arêtes
-  const [edgeManipulationMode, setEdgeManipulationMode] = useState(false);
   
   // Référence à l'instance de ReactFlow
   const reactFlowInstance = useRef(null);
@@ -327,6 +327,7 @@ function App() {
       };
     });
     
+    // Mettre à jour le résultat et basculer vers le graphe de flot
     setMaxFlowResult({ value: maxFlow, flowGraph: updatedEdges });
     setShowFlowGraph(true);
   }, [nodes, edges]);
@@ -381,10 +382,12 @@ function App() {
                 >
                   {showFlowGraph ? 'Graphe original' : 'Graphe de flot'}
                 </button>
-                <div className="result-panel">
-                  <h4>Résultat</h4>
-                  <p>Flot maximal : {maxFlowResult.value}</p>
-                </div>
+                {showFlowGraph && (
+                  <div className="result-panel">
+                    <h4>Résultat</h4>
+                    <p>Flot maximal : {maxFlowResult.value}</p>
+                  </div>
+                )}
               </div>
             )}
           </div>
