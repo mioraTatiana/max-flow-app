@@ -553,11 +553,11 @@ export default function App() {
                     />
                     <Button onClick={renameNode}>OK</Button>
                   </div>
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="flex flex-col gap-2">
                     <Button onClick={setAsSource} variant="outline" className="text-green-600 border-green-600 hover:bg-green-50">
                       Source
                     </Button>
-                    <Button onClick={setAsTarget} variant="outline" className="text-orange-600 border-orange-600 hover:bg-orange-50">
+                    <Button onClick={setAsTarget} variant="outline" id='destination-button' className="text-orange-600 border-orange-600 hover:bg-orange-50">
                       Destination
                     </Button>
                   </div>
