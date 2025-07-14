@@ -594,7 +594,7 @@ export default function App() {
               </Card>
             )}
 
-            <Card>
+            {/* <Card>
               <CardHeader>
                 <CardTitle>Instructions</CardTitle>
               </CardHeader>
@@ -608,7 +608,7 @@ export default function App() {
                 <p>• Définissez une source et une destination</p>
                 <p>• Calculez le flot maximal</p>
               </CardContent>
-            </Card>
+            </Card> */}
 
             {showFlowResult && (
               <Card>
